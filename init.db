@@ -1,0 +1,155 @@
+insert into players (name, pin)
+values
+  ('Ricardo', '1001'),
+  ('Andrés', '1002'),
+  ('Virginia', '1003'),
+  ('Alexandra', '1004'),
+  ('Karen', '1005'),
+  ('Hector', '1006'),
+  ('Ederson', '1007'),
+  ('Sebastian', '1008'),
+  ('Jean Pierre', '1009'),
+  ('Cristian', '1010'),
+  ('Simón', '1011'),
+  ('Lucerito', '1012'),
+  ('Tatiana', '1013')
+on conflict (pin) do update set
+  name = excluded.name;
+
+
+  -- =========================================================
+-- AJUSTES OPCIONALES PARA TU TABLA matches
+-- =========================================================
+
+alter table matches
+add column if not exists external_id text;
+
+alter table matches
+add column if not exists tournament text default 'Mundial 2026';
+
+alter table matches
+add column if not exists stage text default 'Fase de grupos';
+
+alter table matches
+add column if not exists group_name text;
+
+create unique index if not exists matches_external_id_idx
+on matches (external_id);
+
+
+-- =========================================================
+-- INSERT PARTIDOS FASE DE GRUPOS MUNDIAL 2026
+-- Horario Colombia COT / UTC-5
+-- =========================================================
+
+insert into matches (
+  external_id,
+  tournament,
+  stage,
+  group_name,
+  match_date,
+  match_time,
+  home_team,
+  away_team,
+  home_score,
+  away_score,
+  status
+)
+values
+  ('66456904', 'Mundial 2026', 'Fase de grupos', 'Grupo A', '2026-06-11', '14:00', 'México', 'Sudáfrica', null, null, 'scheduled'),
+  ('66456906', 'Mundial 2026', 'Fase de grupos', 'Grupo A', '2026-06-11', '21:00', 'Corea del Sur', 'Chequia', null, null, 'scheduled'),
+
+  ('66456916', 'Mundial 2026', 'Fase de grupos', 'Grupo B', '2026-06-12', '14:00', 'Canadá', 'Bosnia y Herzegovina', null, null, 'scheduled'),
+  ('66456940', 'Mundial 2026', 'Fase de grupos', 'Grupo D', '2026-06-12', '20:00', 'Estados Unidos', 'Paraguay', null, null, 'scheduled'),
+
+  ('66456918', 'Mundial 2026', 'Fase de grupos', 'Grupo B', '2026-06-13', '14:00', 'Catar', 'Suiza', null, null, 'scheduled'),
+  ('66456928', 'Mundial 2026', 'Fase de grupos', 'Grupo C', '2026-06-13', '17:00', 'Brasil', 'Marruecos', null, null, 'scheduled'),
+  ('66456930', 'Mundial 2026', 'Fase de grupos', 'Grupo C', '2026-06-13', '20:00', 'Haití', 'Escocia', null, null, 'scheduled'),
+  ('66456942', 'Mundial 2026', 'Fase de grupos', 'Grupo D', '2026-06-13', '23:00', 'Australia', 'Turquía', null, null, 'scheduled'),
+
+  ('66457070', 'Mundial 2026', 'Fase de grupos', 'Grupo E', '2026-06-14', '12:00', 'Alemania', 'Curazao', null, null, 'scheduled'),
+  ('66456968', 'Mundial 2026', 'Fase de grupos', 'Grupo F', '2026-06-14', '15:00', 'Países Bajos', 'Japón', null, null, 'scheduled'),
+  ('66457072', 'Mundial 2026', 'Fase de grupos', 'Grupo E', '2026-06-14', '18:00', 'Costa de Marfil', 'Ecuador', null, null, 'scheduled'),
+  ('66456970', 'Mundial 2026', 'Fase de grupos', 'Grupo F', '2026-06-14', '21:00', 'Suecia', 'Túnez', null, null, 'scheduled'),
+
+  ('66456994', 'Mundial 2026', 'Fase de grupos', 'Grupo H', '2026-06-15', '11:00', 'España', 'Cabo Verde', null, null, 'scheduled'),
+  ('66456982', 'Mundial 2026', 'Fase de grupos', 'Grupo G', '2026-06-15', '14:00', 'Bélgica', 'Egipto', null, null, 'scheduled'),
+  ('66456996', 'Mundial 2026', 'Fase de grupos', 'Grupo H', '2026-06-15', '17:00', 'Arabia Saudita', 'Uruguay', null, null, 'scheduled'),
+  ('66456984', 'Mundial 2026', 'Fase de grupos', 'Grupo G', '2026-06-15', '20:00', 'Irán', 'Nueva Zelanda', null, null, 'scheduled'),
+
+  ('66457006', 'Mundial 2026', 'Fase de grupos', 'Grupo I', '2026-06-16', '14:00', 'Francia', 'Senegal', null, null, 'scheduled'),
+  ('66457008', 'Mundial 2026', 'Fase de grupos', 'Grupo I', '2026-06-16', '17:00', 'Irak', 'Noruega', null, null, 'scheduled'),
+  ('66457018', 'Mundial 2026', 'Fase de grupos', 'Grupo J', '2026-06-16', '20:00', 'Argentina', 'Argelia', null, null, 'scheduled'),
+  ('66457020', 'Mundial 2026', 'Fase de grupos', 'Grupo J', '2026-06-16', '23:00', 'Austria', 'Jordania', null, null, 'scheduled'),
+
+  ('66457030', 'Mundial 2026', 'Fase de grupos', 'Grupo K', '2026-06-17', '12:00', 'Portugal', 'RD Congo', null, null, 'scheduled'),
+  ('66457042', 'Mundial 2026', 'Fase de grupos', 'Grupo L', '2026-06-17', '15:00', 'Inglaterra', 'Croacia', null, null, 'scheduled'),
+  ('66457044', 'Mundial 2026', 'Fase de grupos', 'Grupo L', '2026-06-17', '18:00', 'Ghana', 'Panamá', null, null, 'scheduled'),
+  ('66457032', 'Mundial 2026', 'Fase de grupos', 'Grupo K', '2026-06-17', '21:00', 'Uzbekistán', 'Colombia', null, null, 'scheduled'),
+
+  ('66456910', 'Mundial 2026', 'Fase de grupos', 'Grupo A', '2026-06-18', '11:00', 'Chequia', 'Sudáfrica', null, null, 'scheduled'),
+  ('66456922', 'Mundial 2026', 'Fase de grupos', 'Grupo B', '2026-06-18', '14:00', 'Suiza', 'Bosnia y Herzegovina', null, null, 'scheduled'),
+  ('66456920', 'Mundial 2026', 'Fase de grupos', 'Grupo B', '2026-06-18', '17:00', 'Canadá', 'Catar', null, null, 'scheduled'),
+  ('66456908', 'Mundial 2026', 'Fase de grupos', 'Grupo A', '2026-06-18', '20:00', 'México', 'Corea del Sur', null, null, 'scheduled'),
+
+  ('66456944', 'Mundial 2026', 'Fase de grupos', 'Grupo D', '2026-06-19', '14:00', 'Estados Unidos', 'Australia', null, null, 'scheduled'),
+  ('66456934', 'Mundial 2026', 'Fase de grupos', 'Grupo C', '2026-06-19', '17:00', 'Escocia', 'Marruecos', null, null, 'scheduled'),
+  ('66456932', 'Mundial 2026', 'Fase de grupos', 'Grupo C', '2026-06-19', '19:30', 'Brasil', 'Haití', null, null, 'scheduled'),
+  ('66456946', 'Mundial 2026', 'Fase de grupos', 'Grupo D', '2026-06-19', '22:00', 'Turquía', 'Paraguay', null, null, 'scheduled'),
+
+  ('66456972', 'Mundial 2026', 'Fase de grupos', 'Grupo F', '2026-06-20', '12:00', 'Países Bajos', 'Suecia', null, null, 'scheduled'),
+  ('66457074', 'Mundial 2026', 'Fase de grupos', 'Grupo E', '2026-06-20', '15:00', 'Alemania', 'Costa de Marfil', null, null, 'scheduled'),
+  ('66457076', 'Mundial 2026', 'Fase de grupos', 'Grupo E', '2026-06-20', '19:00', 'Ecuador', 'Curazao', null, null, 'scheduled'),
+  ('66456974', 'Mundial 2026', 'Fase de grupos', 'Grupo F', '2026-06-20', '23:00', 'Túnez', 'Japón', null, null, 'scheduled'),
+
+  ('66456998', 'Mundial 2026', 'Fase de grupos', 'Grupo H', '2026-06-21', '11:00', 'España', 'Arabia Saudita', null, null, 'scheduled'),
+  ('66456986', 'Mundial 2026', 'Fase de grupos', 'Grupo G', '2026-06-21', '14:00', 'Bélgica', 'Irán', null, null, 'scheduled'),
+  ('66457000', 'Mundial 2026', 'Fase de grupos', 'Grupo H', '2026-06-21', '17:00', 'Uruguay', 'Cabo Verde', null, null, 'scheduled'),
+  ('66456988', 'Mundial 2026', 'Fase de grupos', 'Grupo G', '2026-06-21', '20:00', 'Nueva Zelanda', 'Egipto', null, null, 'scheduled'),
+
+  ('66457022', 'Mundial 2026', 'Fase de grupos', 'Grupo J', '2026-06-22', '12:00', 'Argentina', 'Austria', null, null, 'scheduled'),
+  ('66457010', 'Mundial 2026', 'Fase de grupos', 'Grupo I', '2026-06-22', '16:00', 'Francia', 'Irak', null, null, 'scheduled'),
+  ('66457012', 'Mundial 2026', 'Fase de grupos', 'Grupo I', '2026-06-22', '19:00', 'Noruega', 'Senegal', null, null, 'scheduled'),
+  ('66457024', 'Mundial 2026', 'Fase de grupos', 'Grupo J', '2026-06-22', '22:00', 'Jordania', 'Argelia', null, null, 'scheduled'),
+
+  ('66457034', 'Mundial 2026', 'Fase de grupos', 'Grupo K', '2026-06-23', '12:00', 'Portugal', 'Uzbekistán', null, null, 'scheduled'),
+  ('66457046', 'Mundial 2026', 'Fase de grupos', 'Grupo L', '2026-06-23', '15:00', 'Inglaterra', 'Ghana', null, null, 'scheduled'),
+  ('66457048', 'Mundial 2026', 'Fase de grupos', 'Grupo L', '2026-06-23', '18:00', 'Panamá', 'Croacia', null, null, 'scheduled'),
+  ('66457036', 'Mundial 2026', 'Fase de grupos', 'Grupo K', '2026-06-23', '21:00', 'Colombia', 'RD Congo', null, null, 'scheduled'),
+
+  ('66456924', 'Mundial 2026', 'Fase de grupos', 'Grupo B', '2026-06-24', '14:00', 'Suiza', 'Canadá', null, null, 'scheduled'),
+  ('66456926', 'Mundial 2026', 'Fase de grupos', 'Grupo B', '2026-06-24', '14:00', 'Bosnia y Herzegovina', 'Catar', null, null, 'scheduled'),
+  ('66456936', 'Mundial 2026', 'Fase de grupos', 'Grupo C', '2026-06-24', '17:00', 'Escocia', 'Brasil', null, null, 'scheduled'),
+  ('66456938', 'Mundial 2026', 'Fase de grupos', 'Grupo C', '2026-06-24', '17:00', 'Marruecos', 'Haití', null, null, 'scheduled'),
+  ('66456912', 'Mundial 2026', 'Fase de grupos', 'Grupo A', '2026-06-24', '20:00', 'Chequia', 'México', null, null, 'scheduled'),
+  ('66456914', 'Mundial 2026', 'Fase de grupos', 'Grupo A', '2026-06-24', '20:00', 'Sudáfrica', 'Corea del Sur', null, null, 'scheduled'),
+
+  ('66457078', 'Mundial 2026', 'Fase de grupos', 'Grupo E', '2026-06-25', '15:00', 'Ecuador', 'Alemania', null, null, 'scheduled'),
+  ('66457080', 'Mundial 2026', 'Fase de grupos', 'Grupo E', '2026-06-25', '15:00', 'Curazao', 'Costa de Marfil', null, null, 'scheduled'),
+  ('66456976', 'Mundial 2026', 'Fase de grupos', 'Grupo F', '2026-06-25', '18:00', 'Túnez', 'Países Bajos', null, null, 'scheduled'),
+  ('66456978', 'Mundial 2026', 'Fase de grupos', 'Grupo F', '2026-06-25', '18:00', 'Japón', 'Suecia', null, null, 'scheduled'),
+  ('66456948', 'Mundial 2026', 'Fase de grupos', 'Grupo D', '2026-06-25', '21:00', 'Turquía', 'Estados Unidos', null, null, 'scheduled'),
+  ('66456950', 'Mundial 2026', 'Fase de grupos', 'Grupo D', '2026-06-25', '21:00', 'Paraguay', 'Australia', null, null, 'scheduled'),
+
+  ('66457014', 'Mundial 2026', 'Fase de grupos', 'Grupo I', '2026-06-26', '14:00', 'Noruega', 'Francia', null, null, 'scheduled'),
+  ('66457016', 'Mundial 2026', 'Fase de grupos', 'Grupo I', '2026-06-26', '14:00', 'Senegal', 'Irak', null, null, 'scheduled'),
+  ('66457002', 'Mundial 2026', 'Fase de grupos', 'Grupo H', '2026-06-26', '19:00', 'Uruguay', 'España', null, null, 'scheduled'),
+  ('66457004', 'Mundial 2026', 'Fase de grupos', 'Grupo H', '2026-06-26', '19:00', 'Cabo Verde', 'Arabia Saudita', null, null, 'scheduled'),
+  ('66456990', 'Mundial 2026', 'Fase de grupos', 'Grupo G', '2026-06-26', '22:00', 'Nueva Zelanda', 'Bélgica', null, null, 'scheduled'),
+  ('66456992', 'Mundial 2026', 'Fase de grupos', 'Grupo G', '2026-06-26', '22:00', 'Egipto', 'Irán', null, null, 'scheduled'),
+
+  ('66457050', 'Mundial 2026', 'Fase de grupos', 'Grupo L', '2026-06-27', '16:00', 'Panamá', 'Inglaterra', null, null, 'scheduled'),
+  ('66457052', 'Mundial 2026', 'Fase de grupos', 'Grupo L', '2026-06-27', '16:00', 'Croacia', 'Ghana', null, null, 'scheduled'),
+  ('66457038', 'Mundial 2026', 'Fase de grupos', 'Grupo K', '2026-06-27', '18:30', 'Colombia', 'Portugal', null, null, 'scheduled'),
+  ('66457040', 'Mundial 2026', 'Fase de grupos', 'Grupo K', '2026-06-27', '18:30', 'RD Congo', 'Uzbekistán', null, null, 'scheduled'),
+  ('66457026', 'Mundial 2026', 'Fase de grupos', 'Grupo J', '2026-06-27', '21:00', 'Jordania', 'Argentina', null, null, 'scheduled'),
+  ('66457028', 'Mundial 2026', 'Fase de grupos', 'Grupo J', '2026-06-27', '21:00', 'Argelia', 'Austria', null, null, 'scheduled')
+
+on conflict (external_id) do update set
+  tournament = excluded.tournament,
+  stage = excluded.stage,
+  group_name = excluded.group_name,
+  match_date = excluded.match_date,
+  match_time = excluded.match_time,
+  home_team = excluded.home_team,
+  away_team = excluded.away_team;
