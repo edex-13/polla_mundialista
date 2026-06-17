@@ -19,7 +19,11 @@ export default function ScoreSummary({ player, refreshKey }) {
 
       if (shouldIgnoreResponse) return;
 
-      setRankingRows(error ? [] : data);
+      // Excluye al administrador para que la posición sea consistente con el ranking.
+      const rows = error ? [] : (data ?? []).filter(
+        (row) => row.name?.toLowerCase() !== 'admin',
+      );
+      setRankingRows(rows);
       setIsLoading(false);
     }
 

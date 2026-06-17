@@ -4,18 +4,29 @@ import MyPredictionResults from './MyPredictionResults.jsx';
 import MatchPredictionCard from './MatchPredictionCard.jsx';
 import Ranking from './Ranking.jsx';
 import ScoreSummary from './ScoreSummary.jsx';
+import AdminPanel from './AdminPanel.jsx';
+import PodiumPrediction from './PodiumPrediction.jsx';
 
-const TABS = [
+const RANKING_TAB = { id: 'ranking', label: 'Ranking' };
+
+const BASE_TABS = [
   { id: 'pronosticos', label: 'Pronósticos' },
   { id: 'resultados', label: 'Mis resultados' },
-  { id: 'ranking', label: 'Ranking' },
+  RANKING_TAB,
 ];
 
+const ADMIN_TAB = { id: 'admin', label: 'Admin' };
+
 const TAB_INTROS = {
-  pronosticos: 'Ingresa tus marcadores para los partidos de hoy.',
+  pronosticos: 'Pronostica los próximos partidos. Los que ya empezaron quedan cerrados.',
   resultados: 'Revisa cómo te fue en cada partido.',
   ranking: 'Posiciones generales de todos los participantes.',
+  admin: 'Registra los resultados de los partidos y el podio del Mundial.',
 };
+
+// Columnas base presentes en producción + las opcionales del seed de Mundial.
+const BASE_MATCH_COLUMNS = 'id, match_date, match_time, home_team, away_team';
+const EXTENDED_MATCH_COLUMNS = `${BASE_MATCH_COLUMNS}, group_name`;
 
 function getTodayDateValue() {
   return new Date().toLocaleDateString('en-CA');
@@ -31,6 +42,14 @@ function hasMatchStarted(match) {
   const matchStartDate = createMatchStartDate(match);
 
   return matchStartDate ? matchStartDate <= new Date() : false;
+}
+
+function formatDateHeading(dateValue) {
+  return new Intl.DateTimeFormat('es-CO', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  }).format(new Date(`${dateValue}T00:00:00`));
 }
 
 function createInitialPredictionsByMatchId(matches, predictions) {
@@ -55,6 +74,23 @@ function createInitialPredictionsByMatchId(matches, predictions) {
   );
 }
 
+// Agrupa los partidos por fecha conservando el orden cronológico ya cargado.
+function groupMatchesByDate(matches) {
+  const groups = [];
+  const indexByDate = new Map();
+
+  for (const match of matches) {
+    if (!indexByDate.has(match.match_date)) {
+      indexByDate.set(match.match_date, groups.length);
+      groups.push({ date: match.match_date, matches: [] });
+    }
+
+    groups[indexByDate.get(match.match_date)].matches.push(match);
+  }
+
+  return groups;
+}
+
 function hasIncompletePredictions(matches, predictionsByMatchId) {
   return matches.some((match) => {
     const prediction = predictionsByMatchId[match.id];
@@ -68,14 +104,14 @@ function hasIncompletePredictions(matches, predictionsByMatchId) {
 }
 
 export default function PredictionsPage({ player, onLogout }) {
-  const [activeTab, setActiveTab] = useState('pronosticos');
+  const [activeTab, setActiveTab] = useState(player.is_admin ? 'ranking' : 'pronosticos');
   const [matches, setMatches] = useState([]);
   const [predictionsByMatchId, setPredictionsByMatchId] = useState({});
+  const [openDate, setOpenDate] = useState(null);
   const [statusMessage, setStatusMessage] = useState('');
   const [statusType, setStatusType] = useState('success');
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
-  const [isUpdatingPoints, setIsUpdatingPoints] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
 
   const todayDate = useMemo(() => getTodayDateValue(), []);
@@ -83,12 +119,11 @@ export default function PredictionsPage({ player, onLogout }) {
     () => matches.filter((match) => !hasMatchStarted(match)),
     [matches],
   );
-  const formattedTodayDate = useMemo(
-    () =>
-      new Intl.DateTimeFormat('es-CO', {
-        dateStyle: 'full',
-      }).format(new Date(`${todayDate}T00:00:00`)),
-    [todayDate],
+  const matchesByDate = useMemo(() => groupMatchesByDate(matches), [matches]);
+  // El admin no pronostica ni tiene resultados propios: solo ranking + admin.
+  const tabs = useMemo(
+    () => (player.is_admin ? [RANKING_TAB, ADMIN_TAB] : BASE_TABS),
+    [player.is_admin],
   );
 
   useEffect(() => {
@@ -98,11 +133,31 @@ export default function PredictionsPage({ player, onLogout }) {
       setIsLoading(true);
       setStatusMessage('');
 
-      const { data: todayMatches, error: matchesError } = await supabase
+      // Trae partidos de hoy en adelante; intenta incluir group_name y,
+      // si esa columna no existe en producción, reintenta con las base.
+      let matchesData = null;
+      let matchesError = null;
+
+      const extended = await supabase
         .from('matches')
-        .select('id, match_date, match_time, home_team, away_team')
-        .eq('match_date', todayDate)
+        .select(EXTENDED_MATCH_COLUMNS)
+        .gte('match_date', todayDate)
+        .order('match_date', { ascending: true })
         .order('match_time', { ascending: true });
+
+      if (extended.error) {
+        const base = await supabase
+          .from('matches')
+          .select(BASE_MATCH_COLUMNS)
+          .gte('match_date', todayDate)
+          .order('match_date', { ascending: true })
+          .order('match_time', { ascending: true });
+
+        matchesData = base.data;
+        matchesError = base.error;
+      } else {
+        matchesData = extended.data;
+      }
 
       if (shouldIgnoreResponse) return;
 
@@ -115,7 +170,8 @@ export default function PredictionsPage({ player, onLogout }) {
         return;
       }
 
-      const matchIds = todayMatches.map((match) => match.id);
+      const upcomingMatches = matchesData ?? [];
+      const matchIds = upcomingMatches.map((match) => match.id);
 
       if (matchIds.length === 0) {
         setMatches([]);
@@ -141,10 +197,12 @@ export default function PredictionsPage({ player, onLogout }) {
         return;
       }
 
-      setMatches(todayMatches);
+      setMatches(upcomingMatches);
       setPredictionsByMatchId(
-        createInitialPredictionsByMatchId(todayMatches, existingPredictions),
+        createInitialPredictionsByMatchId(upcomingMatches, existingPredictions),
       );
+      // Abre por defecto la fecha más próxima.
+      setOpenDate(upcomingMatches[0]?.match_date ?? null);
       setIsLoading(false);
     }
 
@@ -153,7 +211,7 @@ export default function PredictionsPage({ player, onLogout }) {
     return () => {
       shouldIgnoreResponse = true;
     };
-  }, [player.id, todayDate]);
+  }, [player.id, todayDate, refreshKey]);
 
   function updatePrediction(matchId, fieldName, fieldValue) {
     setPredictionsByMatchId((currentPredictionsByMatchId) => ({
@@ -174,25 +232,37 @@ export default function PredictionsPage({ player, onLogout }) {
       return;
     }
 
-    if (hasIncompletePredictions(editableMatches, predictionsByMatchId)) {
+    // Solo guardamos los partidos abiertos que tengan ambos marcadores,
+    // así el usuario puede pronosticar por tandas sin que se le exija todo.
+    const predictionsToSave = editableMatches
+      .filter((match) => {
+        const prediction = predictionsByMatchId[match.id];
+
+        return (
+          prediction &&
+          prediction.predicted_home_score !== '' &&
+          prediction.predicted_away_score !== ''
+        );
+      })
+      .map((match) => {
+        const prediction = predictionsByMatchId[match.id];
+
+        return {
+          player_id: player.id,
+          match_id: match.id,
+          predicted_home_score: Number(prediction.predicted_home_score),
+          predicted_away_score: Number(prediction.predicted_away_score),
+          updated_at: new Date().toISOString(),
+        };
+      });
+
+    if (predictionsToSave.length === 0) {
       setStatusType('error');
-      setStatusMessage('Debes llenar todos los marcadores');
+      setStatusMessage('Completa al menos un marcador para guardar');
       return;
     }
 
     setIsSaving(true);
-
-    const predictionsToSave = editableMatches.map((match) => {
-      const prediction = predictionsByMatchId[match.id];
-
-      return {
-        player_id: player.id,
-        match_id: match.id,
-        predicted_home_score: Number(prediction.predicted_home_score),
-        predicted_away_score: Number(prediction.predicted_away_score),
-        updated_at: new Date().toISOString(),
-      };
-    });
 
     const { error } = await supabase
       .from('predictions')
@@ -207,27 +277,11 @@ export default function PredictionsPage({ player, onLogout }) {
     }
 
     setStatusType('success');
-    setStatusMessage('Pronósticos guardados correctamente');
-    setRefreshKey((currentRefreshKey) => currentRefreshKey + 1);
-  }
-
-  async function handleUpdatePoints() {
-    setIsUpdatingPoints(true);
-    setStatusMessage('');
-
-    const { error } = await supabase.rpc('calculate_prediction_points');
-
-    setIsUpdatingPoints(false);
-
-    if (error) {
-      setStatusType('error');
-      setStatusMessage('Error actualizando puntajes');
-      return;
-    }
-
-    setStatusType('success');
-    setStatusMessage('Puntajes actualizados correctamente');
-    setRefreshKey((currentRefreshKey) => currentRefreshKey + 1);
+    setStatusMessage(
+      `Guardado: ${predictionsToSave.length} pronóstico${
+        predictionsToSave.length === 1 ? '' : 's'
+      }`,
+    );
   }
 
   function handleTabChange(tabId) {
@@ -235,13 +289,17 @@ export default function PredictionsPage({ player, onLogout }) {
     setStatusMessage('');
   }
 
+  function toggleDate(dateValue) {
+    setOpenDate((current) => (current === dateValue ? null : dateValue));
+  }
+
   return (
     <section className="predictions-page">
       <header className="app-topbar">
         <div className="brand-block brand-block-compact">
-          <span className="brand-mark">PM</span>
+          <span className="brand-mark">⚽</span>
           <div>
-            <p className="eyebrow">{formattedTodayDate}</p>
+            <p className="eyebrow">Polla Mundial 2026</p>
             <h1>Hola, {player.name}</h1>
           </div>
         </div>
@@ -251,10 +309,12 @@ export default function PredictionsPage({ player, onLogout }) {
         </button>
       </header>
 
-      <ScoreSummary player={player} refreshKey={refreshKey} />
+      {player.is_admin ? null : (
+        <ScoreSummary player={player} refreshKey={refreshKey} />
+      )}
 
-      <nav className="tabs tabs-three" aria-label="Secciones principales">
-        {TABS.map((tab) => (
+      <nav className={`tabs tabs-count-${tabs.length}`} aria-label="Secciones principales">
+        {tabs.map((tab) => (
           <button
             key={tab.id}
             className={activeTab === tab.id ? 'tab-active' : ''}
@@ -271,38 +331,96 @@ export default function PredictionsPage({ player, onLogout }) {
 
         {activeTab === 'pronosticos' ? (
           <>
-            {isLoading ? (
-              <p className="empty-state">Cargando partidos...</p>
-            ) : null}
+            <PodiumPrediction
+              player={player}
+              onSaved={() =>
+                setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
+              }
+            />
+
+            {isLoading ? <p className="empty-state">Cargando partidos...</p> : null}
 
             {!isLoading && matches.length === 0 ? (
-              <p className="empty-state">No hay partidos para hoy</p>
+              <p className="empty-state">No hay partidos próximos</p>
             ) : null}
 
             {!isLoading && matches.length > 0 ? (
               <>
-                <div className="matches-list">
-                  {matches.map((match) => (
-                    <MatchPredictionCard
-                      key={match.id}
-                      match={match}
-                      isEditable={!hasMatchStarted(match)}
-                      prediction={
-                        predictionsByMatchId[match.id] ?? {
-                          predicted_home_score: '',
-                          predicted_away_score: '',
-                        }
-                      }
-                      onPredictionChange={updatePrediction}
-                    />
-                  ))}
+                <div className="date-groups">
+                  {matchesByDate.map((group) => {
+                    const isOpen = openDate === group.date;
+                    const isToday = group.date === todayDate;
+                    const openCount = group.matches.filter(
+                      (match) => !hasMatchStarted(match),
+                    ).length;
+
+                    return (
+                      <section
+                        className={`date-group ${isOpen ? 'date-group-open' : ''}`}
+                        key={group.date}
+                      >
+                        <button
+                          type="button"
+                          className="date-group-head"
+                          aria-expanded={isOpen}
+                          onClick={() => toggleDate(group.date)}
+                        >
+                          <span className="date-group-title">
+                            {isToday ? <span className="today-tag">Hoy</span> : null}
+                            {formatDateHeading(group.date)}
+                          </span>
+                          <span className="date-group-meta">
+                            <span className="date-group-count">
+                              {group.matches.length} partido
+                              {group.matches.length === 1 ? '' : 's'}
+                            </span>
+                            {openCount > 0 ? (
+                              <span className="date-group-open-count">
+                                {openCount} abierto{openCount === 1 ? '' : 's'}
+                              </span>
+                            ) : (
+                              <span className="date-group-closed-count">Cerrados</span>
+                            )}
+                            <span className="date-group-chevron" aria-hidden="true">
+                              ⌄
+                            </span>
+                          </span>
+                        </button>
+
+                        {isOpen ? (
+                          <div className="matches-list">
+                            {group.matches.map((match) => (
+                              <MatchPredictionCard
+                                key={match.id}
+                                match={match}
+                                isEditable={!hasMatchStarted(match)}
+                                currentPlayerId={player.id}
+                                prediction={
+                                  predictionsByMatchId[match.id] ?? {
+                                    predicted_home_score: '',
+                                    predicted_away_score: '',
+                                  }
+                                }
+                                onPredictionChange={updatePrediction}
+                              />
+                            ))}
+                          </div>
+                        ) : null}
+                      </section>
+                    );
+                  })}
                 </div>
 
                 {statusMessage ? (
                   <p className={`message message-${statusType}`}>{statusMessage}</p>
                 ) : null}
 
-                <button type="button" disabled={isSaving} onClick={handleSavePredictions}>
+                <button
+                  className="save-button"
+                  type="button"
+                  disabled={isSaving}
+                  onClick={handleSavePredictions}
+                >
                   {isSaving ? 'Guardando...' : 'Guardar pronósticos'}
                 </button>
               </>
@@ -311,26 +429,19 @@ export default function PredictionsPage({ player, onLogout }) {
         ) : null}
 
         {activeTab === 'resultados' ? (
-          <>
-            <MyPredictionResults player={player} refreshKey={refreshKey} hideTitle />
-
-            {statusMessage ? (
-              <p className={`message message-${statusType}`}>{statusMessage}</p>
-            ) : null}
-
-            <button
-              className="dark-button"
-              type="button"
-              disabled={isUpdatingPoints}
-              onClick={handleUpdatePoints}
-            >
-              {isUpdatingPoints ? 'Actualizando...' : 'Actualizar puntajes'}
-            </button>
-          </>
+          <MyPredictionResults player={player} refreshKey={refreshKey} hideTitle />
         ) : null}
 
         {activeTab === 'ranking' ? (
           <Ranking player={player} refreshKey={refreshKey} />
+        ) : null}
+
+        {activeTab === 'admin' && player.is_admin ? (
+          <AdminPanel
+            onPointsRecalculated={() =>
+              setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
+            }
+          />
         ) : null}
       </div>
     </section>

@@ -23,7 +23,7 @@ export default function PinLogin({ onLogin }) {
 
     const { data: player, error } = await supabase
       .from('players')
-      .select('id, name, pin')
+      .select('id, name, pin, is_admin')
       .ilike('name', normalizedPlayerName)
       .eq('pin', normalizedPin)
       .maybeSingle();
