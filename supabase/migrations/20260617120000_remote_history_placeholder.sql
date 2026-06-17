@@ -1,0 +1,2 @@
+-- Placeholder para una migracion que ya figura aplicada en Supabase remoto.
+-- No ejecuta cambios. Mantiene el historial local alineado para permitir db push.

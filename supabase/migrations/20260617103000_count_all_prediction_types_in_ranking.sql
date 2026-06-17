@@ -2,6 +2,8 @@
 -- partidos + grupos + podio.
 -- No modifica datos.
 
+drop view if exists public.ranking_view;
+
 create or replace view public.ranking_view as
 select
   player.id as player_id,

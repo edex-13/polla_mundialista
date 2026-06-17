@@ -89,6 +89,8 @@ on public.group_predictions
 for each row
 execute function public.trigger_calculate_group_points();
 
+drop view if exists public.ranking_view;
+
 create or replace view public.ranking_view as
 select
   player.id as player_id,
