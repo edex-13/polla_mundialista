@@ -267,6 +267,10 @@ input[type='number'] {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.tabs-count-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .tabs button {
   min-height: 42px;
   padding: 0 6px;
@@ -926,6 +930,14 @@ input[type='number'] {
   letter-spacing: 0.04em;
 }
 
+.podium-predictions {
+  color: var(--ink-muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+}
+
 .podium-base {
   display: grid;
   place-items: center;
@@ -1034,6 +1046,16 @@ input[type='number'] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.ranking-name small {
+  display: block;
+  margin-top: 2px;
+  color: var(--ink-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .ranking-name em {
@@ -1294,6 +1316,28 @@ input[type='number'] {
   box-shadow: var(--shadow-md);
 }
 
+.group-prediction {
+  display: grid;
+  gap: 14px;
+}
+
+.section-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 16px;
+  border: 1px solid var(--brand-soft);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-card-head h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
 .podium-card-head {
   display: flex;
   align-items: flex-start;
@@ -1389,6 +1433,124 @@ input[type='number'] {
   font-size: 0.85rem;
   font-weight: 600;
   text-align: center;
+}
+
+/* ============ GROUP PREDICTION ============ */
+.group-accordion,
+.admin-groups {
+  display: grid;
+  gap: 12px;
+}
+
+.group-card,
+.admin-group-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.group-card-open {
+  border-color: var(--brand-soft);
+  box-shadow: var(--shadow-md);
+}
+
+.group-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 16px;
+  border-radius: 0;
+  color: var(--ink);
+  background: transparent;
+  text-align: left;
+}
+
+.group-card-head:hover:not(:disabled) {
+  background: var(--surface-soft);
+}
+
+.group-card-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+}
+
+.group-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.group-ready,
+.group-pending {
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.group-ready {
+  color: var(--ok);
+  background: var(--ok-soft);
+}
+
+.group-pending {
+  color: #92610a;
+  background: #fdf0d5;
+}
+
+.group-card-body,
+.admin-group-card {
+  display: grid;
+  gap: 13px;
+  padding: 14px;
+}
+
+.group-teams {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.group-team-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--surface-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.group-picks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.admin-group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.admin-group-head h4 {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.admin-group-head span {
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+  font-weight: 700;
 }
 
 .admin-result-vs {
@@ -1676,7 +1838,7 @@ input[type='number'] {
 
 .history-totals {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
 
@@ -1744,6 +1906,19 @@ input[type='number'] {
   margin-left: auto;
   color: var(--ink-muted);
   font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.history-group-name {
+  color: var(--ink);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.history-group-teams {
+  min-width: 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
   font-weight: 700;
 }
 
@@ -1885,6 +2060,20 @@ input[type='number'] {
   .tabs-count-4 button {
     padding: 0 2px;
     font-size: 0.82rem;
+  }
+
+  .tabs-count-5 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tabs-count-5 button {
+    padding: 0 2px;
+    font-size: 0.8rem;
+  }
+
+  .group-picks,
+  .history-totals {
+    grid-template-columns: 1fr;
   }
 
   .score-summary strong {

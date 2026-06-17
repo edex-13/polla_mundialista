@@ -29,6 +29,8 @@ export default function PlayerHistory({ player, onClose }) {
   const [matches, setMatches] = useState([]);
   const [podium, setPodium] = useState(null);
   const [realPodium, setRealPodium] = useState(null);
+  const [groupPredictions, setGroupPredictions] = useState([]);
+  const [realGroupsByName, setRealGroupsByName] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -55,7 +57,8 @@ export default function PlayerHistory({ player, onClose }) {
       setIsLoading(true);
       setErrorMessage('');
 
-      const [matchesResult, podiumResult, realPodiumResult] = await Promise.all([
+      const [matchesResult, podiumResult, realPodiumResult, groupsResult, realGroupsResult] =
+        await Promise.all([
         supabase
           .from('prediction_details_view')
           .select(
@@ -73,6 +76,14 @@ export default function PlayerHistory({ player, onClose }) {
           .select('champion, runner_up, third_place')
           .eq('id', 1)
           .maybeSingle(),
+        supabase
+          .from('group_predictions')
+          .select('group_name, first_place, second_place, points')
+          .eq('player_id', player.player_id)
+          .order('group_name', { ascending: true }),
+        supabase
+          .from('group_results')
+          .select('group_name, first_place, second_place'),
       ]);
 
       if (shouldIgnore) return;
@@ -86,6 +97,15 @@ export default function PlayerHistory({ player, onClose }) {
       setMatches(matchesResult.data ?? []);
       setPodium(podiumResult.data ?? null);
       setRealPodium(realPodiumResult.data ?? null);
+      setGroupPredictions(groupsResult.data ?? []);
+      setRealGroupsByName(
+        Object.fromEntries(
+          (realGroupsResult.data ?? []).map((groupResult) => [
+            groupResult.group_name,
+            groupResult,
+          ]),
+        ),
+      );
       setIsLoading(false);
     }
 
@@ -97,6 +117,10 @@ export default function PlayerHistory({ player, onClose }) {
   }, [player.player_id]);
 
   const matchPoints = matches.reduce((total, item) => total + (item.points ?? 0), 0);
+  const groupPoints = groupPredictions.reduce(
+    (total, item) => total + (item.points ?? 0),
+    0,
+  );
   const podiumPoints = podium?.points ?? 0;
   const finishedCount = matches.filter((item) => item.status === 'finished').length;
 
@@ -143,6 +167,10 @@ export default function PlayerHistory({ player, onClose }) {
                   <strong>{matchPoints} pts</strong>
                 </div>
                 <div>
+                  <span>Grupos</span>
+                  <strong>{groupPoints} pts</strong>
+                </div>
+                <div>
                   <span>Podio Mundial</span>
                   <strong>{podiumPoints} pts</strong>
                 </div>
@@ -184,6 +212,45 @@ export default function PlayerHistory({ player, onClose }) {
                           ) : (
                             <span className="history-podium-label">{slot.label}</span>
                           )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              ) : null}
+
+              {groupPredictions.length > 0 ? (
+                <section className="history-block">
+                  <h4>Predicción por grupos</h4>
+                  <ul className="history-podium">
+                    {groupPredictions.map((groupPrediction) => {
+                      const realGroup = realGroupsByName[groupPrediction.group_name];
+                      const firstExact =
+                        realGroup?.first_place &&
+                        groupPrediction.first_place?.toLowerCase() ===
+                          realGroup.first_place.toLowerCase();
+                      const secondExact =
+                        realGroup?.second_place &&
+                        groupPrediction.second_place?.toLowerCase() ===
+                          realGroup.second_place.toLowerCase();
+
+                      return (
+                        <li key={groupPrediction.group_name}>
+                          <span className="history-group-name">
+                            {groupPrediction.group_name}
+                          </span>
+                          <span className="history-group-teams">
+                            {groupPrediction.first_place} / {groupPrediction.second_place}
+                          </span>
+                          <span
+                            className={`history-podium-hit ${
+                              groupPrediction.points > 0 ? 'history-podium-hit-exact' : ''
+                            }`}
+                          >
+                            {firstExact || secondExact
+                              ? `+${groupPrediction.points} pts`
+                              : `${groupPrediction.points ?? 0} pts`}
+                          </span>
                         </li>
                       );
                     })}

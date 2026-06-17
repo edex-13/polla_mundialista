@@ -18,6 +18,7 @@ export default function TeamPicker({
   placeholder = 'Selecciona un equipo',
   disabled = false,
   excluded = [],
+  options = TEAM_NAMES,
   onChange,
 }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function TeamPicker({
   const filteredTeams = useMemo(() => {
     const normalizedQuery = normalize(query);
 
-    return TEAM_NAMES.filter((team) => {
+    return options.filter((team) => {
       const isExcluded = excludedSet.has(normalize(team)) && normalize(team) !== normalize(value);
 
       if (isExcluded) return false;
@@ -41,7 +42,7 @@ export default function TeamPicker({
 
       return normalize(team).includes(normalizedQuery);
     });
-  }, [query, excludedSet, value]);
+  }, [query, excludedSet, options, value]);
 
   // Bloquea el scroll del fondo y enfoca el buscador al abrir.
   useEffect(() => {

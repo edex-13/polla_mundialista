@@ -3,7 +3,7 @@ import { supabase } from '../lib/supabase.js';
 import TeamPicker from './TeamPicker.jsx';
 
 // Fecha límite para registrar/editar el podio del Mundial.
-const DEADLINE = new Date('2026-06-30T23:59:59');
+const DEADLINE = new Date('2026-06-17T23:59:59-05:00');
 
 const SLOTS = [
   { key: 'champion', label: 'Campeón', medal: '🥇', points: 10 },

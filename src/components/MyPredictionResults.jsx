@@ -31,6 +31,10 @@ function getPointsTag(points) {
 
 export default function MyPredictionResults({ player, refreshKey, hideTitle = false }) {
   const [predictionDetails, setPredictionDetails] = useState([]);
+  const [groupPredictions, setGroupPredictions] = useState([]);
+  const [realGroupsByName, setRealGroupsByName] = useState({});
+  const [podiumPrediction, setPodiumPrediction] = useState(null);
+  const [realPodium, setRealPodium] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -41,25 +45,62 @@ export default function MyPredictionResults({ player, refreshKey, hideTitle = fa
       setIsLoading(true);
       setErrorMessage('');
 
-      const { data, error } = await supabase
-        .from('prediction_details_view')
-        .select(
-          'prediction_id, match_date, match_time, home_team, away_team, predicted_home_score, predicted_away_score, home_score, away_score, status, points',
-        )
-        .eq('player_id', player.id)
-        .order('match_date', { ascending: false })
-        .order('match_time', { ascending: true });
+      const [
+        matchesResult,
+        groupsResult,
+        realGroupsResult,
+        podiumResult,
+        realPodiumResult,
+      ] = await Promise.all([
+        supabase
+          .from('prediction_details_view')
+          .select(
+            'prediction_id, match_date, match_time, home_team, away_team, predicted_home_score, predicted_away_score, home_score, away_score, status, points',
+          )
+          .eq('player_id', player.id)
+          .order('match_date', { ascending: false })
+          .order('match_time', { ascending: true }),
+        supabase
+          .from('group_predictions')
+          .select('group_name, first_place, second_place, points')
+          .eq('player_id', player.id)
+          .order('group_name', { ascending: true }),
+        supabase
+          .from('group_results')
+          .select('group_name, first_place, second_place'),
+        supabase
+          .from('tournament_predictions')
+          .select('champion, runner_up, third_place, points')
+          .eq('player_id', player.id)
+          .maybeSingle(),
+        supabase
+          .from('tournament_result')
+          .select('champion, runner_up, third_place')
+          .eq('id', 1)
+          .maybeSingle(),
+      ]);
 
       if (shouldIgnoreResponse) return;
 
-      if (error) {
+      if (matchesResult.error) {
         setPredictionDetails([]);
         setErrorMessage('Ocurrió un error cargando tus resultados');
         setIsLoading(false);
         return;
       }
 
-      setPredictionDetails(data);
+      setPredictionDetails(matchesResult.data ?? []);
+      setGroupPredictions(groupsResult.data ?? []);
+      setRealGroupsByName(
+        Object.fromEntries(
+          (realGroupsResult.data ?? []).map((groupResult) => [
+            groupResult.group_name,
+            groupResult,
+          ]),
+        ),
+      );
+      setPodiumPrediction(podiumResult.data ?? null);
+      setRealPodium(realPodiumResult.data ?? null);
       setIsLoading(false);
     }
 
@@ -74,7 +115,11 @@ export default function MyPredictionResults({ player, refreshKey, hideTitle = fa
 
   if (errorMessage) return <p className="message message-error">{errorMessage}</p>;
 
-  if (predictionDetails.length === 0) {
+  if (
+    predictionDetails.length === 0 &&
+    groupPredictions.length === 0 &&
+    !podiumPrediction
+  ) {
     return <p className="empty-state">Todavía no tienes pronósticos guardados</p>;
   }
 
@@ -85,6 +130,36 @@ export default function MyPredictionResults({ player, refreshKey, hideTitle = fa
       <div className="points-legend">
         <p className="points-legend-title">¿Cómo se ganan los puntos?</p>
         <ul>
+          <li>
+            <span className="points-chip points-chip-exact">+0.5</span>
+            <span>
+              <strong>Grupos.</strong> Aciertas primero o segundo exacto de un grupo.
+            </span>
+          </li>
+          <li>
+            <span className="points-chip points-chip-exact">+10</span>
+            <span>
+              <strong>Podio campeón.</strong> Aciertas campeón exacto del Mundial.
+            </span>
+          </li>
+          <li>
+            <span className="points-chip points-chip-trend">+8</span>
+            <span>
+              <strong>Podio segundo.</strong> Aciertas subcampeón exacto.
+            </span>
+          </li>
+          <li>
+            <span className="points-chip points-chip-trend">+5</span>
+            <span>
+              <strong>Podio tercero.</strong> Aciertas tercer lugar exacto.
+            </span>
+          </li>
+          <li>
+            <span className="points-chip points-chip-miss">+1</span>
+            <span>
+              <strong>Equipo en podio.</strong> Tu equipo queda en el podio, pero en otra posición.
+            </span>
+          </li>
           <li>
             <span className="points-chip points-chip-exact">+3</span>
             <span>
@@ -108,7 +183,94 @@ export default function MyPredictionResults({ player, refreshKey, hideTitle = fa
         </ul>
       </div>
 
-      <div className="history-list">
+      {podiumPrediction ? (
+        <section className="history-block">
+          <h3>Mi podio</h3>
+          <ul className="history-podium">
+            {[
+              {
+                medal: '🥇',
+                label: 'Campeón',
+                team: podiumPrediction.champion,
+                realTeam: realPodium?.champion,
+              },
+              {
+                medal: '🥈',
+                label: 'Subcampeón',
+                team: podiumPrediction.runner_up,
+                realTeam: realPodium?.runner_up,
+              },
+              {
+                medal: '🥉',
+                label: 'Tercero',
+                team: podiumPrediction.third_place,
+                realTeam: realPodium?.third_place,
+              },
+            ].map((slot) => {
+              const realTeams = [
+                realPodium?.champion,
+                realPodium?.runner_up,
+                realPodium?.third_place,
+              ]
+                .filter(Boolean)
+                .map((team) => team.toLowerCase());
+              const selectedTeam = slot.team?.toLowerCase() ?? '';
+              const isExact = slot.realTeam?.toLowerCase() === selectedTeam;
+              const isInPodium = realTeams.includes(selectedTeam);
+
+              return (
+                <li key={slot.label}>
+                  <span className="history-podium-medal">{slot.medal}</span>
+                  <TeamFlag teamName={slot.team} size="sm" />
+                  <span className="history-podium-team">{slot.team}</span>
+                  {isExact ? (
+                    <span className="history-podium-hit history-podium-hit-exact">
+                      Exacto
+                    </span>
+                  ) : isInPodium ? (
+                    <span className="history-podium-hit">En podio +1</span>
+                  ) : (
+                    <span className="history-podium-label">{slot.label}</span>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+          <p className="points-tag points-tag-exact">
+            Podio Mundial · {podiumPrediction.points ?? 0} pts
+          </p>
+        </section>
+      ) : null}
+
+      {groupPredictions.length > 0 ? (
+        <section className="history-block">
+          <h3>Mis grupos</h3>
+          <ul className="history-podium">
+            {groupPredictions.map((groupPrediction) => {
+              const realGroup = realGroupsByName[groupPrediction.group_name];
+
+              return (
+                <li key={groupPrediction.group_name}>
+                  <span className="history-group-name">{groupPrediction.group_name}</span>
+                  <span className="history-group-teams">
+                    {groupPrediction.first_place} / {groupPrediction.second_place}
+                  </span>
+                  <span
+                    className={`history-podium-hit ${
+                      groupPrediction.points > 0 ? 'history-podium-hit-exact' : ''
+                    }`}
+                  >
+                    {realGroup ? `${groupPrediction.points ?? 0} pts` : 'Pendiente'}
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ) : null}
+
+      {predictionDetails.length > 0 ? (
+        <div className="history-list">
         {predictionDetails.map((predictionDetail) => (
           <article className="history-card" key={predictionDetail.prediction_id}>
             <div>
@@ -156,7 +318,8 @@ export default function MyPredictionResults({ player, refreshKey, hideTitle = fa
             )}
           </article>
         ))}
-      </div>
+        </div>
+      ) : null}
     </section>
   );
 }

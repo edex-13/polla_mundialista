@@ -6,11 +6,14 @@ import Ranking from './Ranking.jsx';
 import ScoreSummary from './ScoreSummary.jsx';
 import AdminPanel from './AdminPanel.jsx';
 import PodiumPrediction from './PodiumPrediction.jsx';
+import GroupPrediction from './GroupPrediction.jsx';
 
 const RANKING_TAB = { id: 'ranking', label: 'Ranking' };
 
 const BASE_TABS = [
-  { id: 'pronosticos', label: 'Pronósticos' },
+  { id: 'partidos', label: 'Partidos' },
+  { id: 'grupos', label: 'Grupos' },
+  { id: 'podio', label: 'Podio' },
   { id: 'resultados', label: 'Mis resultados' },
   RANKING_TAB,
 ];
@@ -18,7 +21,9 @@ const BASE_TABS = [
 const ADMIN_TAB = { id: 'admin', label: 'Admin' };
 
 const TAB_INTROS = {
-  pronosticos: 'Pronostica los próximos partidos. Los que ya empezaron quedan cerrados.',
+  partidos: 'Pronostica los próximos partidos. Los que ya empezaron quedan cerrados.',
+  grupos: 'Elige primero y segundo de cada grupo. Cada acierto exacto suma 0.5 puntos.',
+  podio: 'Pronostica el podio del Mundial.',
   resultados: 'Revisa cómo te fue en cada partido.',
   ranking: 'Posiciones generales de todos los participantes.',
   admin: 'Registra los resultados de los partidos y el podio del Mundial.',
@@ -104,7 +109,7 @@ function hasIncompletePredictions(matches, predictionsByMatchId) {
 }
 
 export default function PredictionsPage({ player, onLogout }) {
-  const [activeTab, setActiveTab] = useState(player.is_admin ? 'ranking' : 'pronosticos');
+  const [activeTab, setActiveTab] = useState(player.is_admin ? 'ranking' : 'partidos');
   const [matches, setMatches] = useState([]);
   const [predictionsByMatchId, setPredictionsByMatchId] = useState({});
   const [openDate, setOpenDate] = useState(null);
@@ -329,15 +334,8 @@ export default function PredictionsPage({ player, onLogout }) {
       <div className="tab-panel">
         <p className="tab-intro">{TAB_INTROS[activeTab]}</p>
 
-        {activeTab === 'pronosticos' ? (
+        {activeTab === 'partidos' ? (
           <>
-            <PodiumPrediction
-              player={player}
-              onSaved={() =>
-                setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
-              }
-            />
-
             {isLoading ? <p className="empty-state">Cargando partidos...</p> : null}
 
             {!isLoading && matches.length === 0 ? (
@@ -426,6 +424,24 @@ export default function PredictionsPage({ player, onLogout }) {
               </>
             ) : null}
           </>
+        ) : null}
+
+        {activeTab === 'grupos' ? (
+          <GroupPrediction
+            player={player}
+            onSaved={() =>
+              setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
+            }
+          />
+        ) : null}
+
+        {activeTab === 'podio' ? (
+          <PodiumPrediction
+            player={player}
+            onSaved={() =>
+              setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
+            }
+          />
         ) : null}
 
         {activeTab === 'resultados' ? (

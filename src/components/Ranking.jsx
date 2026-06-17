@@ -30,6 +30,12 @@ function withRankPositions(rows) {
 
 const MEDALS = { 1: '🥇', 2: '🥈', 3: '🥉' };
 
+function formatPredictionCount(totalPredictions) {
+  const count = totalPredictions ?? 0;
+
+  return `${count} pronóstico${count === 1 ? '' : 's'}`;
+}
+
 export default function Ranking({ player, refreshKey }) {
   const [rankingRows, setRankingRows] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -117,6 +123,9 @@ export default function Ranking({ player, refreshKey }) {
               <span className="podium-name">{row.name}</span>
               <span className="podium-points">{row.total_points}</span>
               <span className="podium-points-label">pts</span>
+              <span className="podium-predictions">
+                {formatPredictionCount(row.total_predictions)}
+              </span>
               <span className="podium-base">{row.position}</span>
             </button>
           ))}
@@ -139,6 +148,7 @@ export default function Ranking({ player, refreshKey }) {
               <span className="ranking-name">
                 {row.name}
                 {row.player_id === player.id ? <em> (tú)</em> : null}
+                <small>{formatPredictionCount(row.total_predictions)}</small>
               </span>
               <span className="ranking-pts">
                 <strong>{row.total_points}</strong>

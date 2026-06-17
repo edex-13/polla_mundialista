@@ -17,6 +17,11 @@ const PODIUM_SLOTS = [
   { key: 'third_place', label: 'Tercer lugar', medal: '🥉' },
 ];
 
+const GROUP_RESULT_SLOTS = [
+  { key: 'first_place', label: '1º del grupo' },
+  { key: 'second_place', label: '2º del grupo' },
+];
+
 function normalizeScore(value) {
   if (value === '') return '';
 
@@ -56,6 +61,31 @@ function groupMatchesByDate(matches) {
   return groups;
 }
 
+function getGroupSortValue(groupName) {
+  const match = (groupName ?? '').match(/[A-Z]$/i);
+
+  return match ? match[0].toUpperCase().charCodeAt(0) : 999;
+}
+
+function createGroupsFromMatches(matches) {
+  const teamsByGroupName = new Map();
+
+  for (const match of matches) {
+    if (!match.group_name) continue;
+
+    if (!teamsByGroupName.has(match.group_name)) {
+      teamsByGroupName.set(match.group_name, new Set());
+    }
+
+    teamsByGroupName.get(match.group_name).add(match.home_team);
+    teamsByGroupName.get(match.group_name).add(match.away_team);
+  }
+
+  return Array.from(teamsByGroupName.entries())
+    .map(([name, teams]) => ({ name, teams: Array.from(teams).sort() }))
+    .sort((left, right) => getGroupSortValue(left.name) - getGroupSortValue(right.name));
+}
+
 function buildInitialScores(matches) {
   return Object.fromEntries(
     matches.map((match) => [
@@ -83,6 +113,8 @@ export default function AdminPanel({ onPointsRecalculated }) {
     runner_up: '',
     third_place: '',
   });
+  const [realGroupResultsByName, setRealGroupResultsByName] = useState({});
+  const [savingGroupName, setSavingGroupName] = useState(null);
   const [isSavingPodium, setIsSavingPodium] = useState(false);
   const [statusMessage, setStatusMessage] = useState('');
   const [statusType, setStatusType] = useState('success');
@@ -98,7 +130,7 @@ export default function AdminPanel({ onPointsRecalculated }) {
 
       const { data, error } = await supabase
         .from('matches')
-        .select('id, match_date, match_time, home_team, away_team, home_score, away_score, status')
+        .select('id, match_date, match_time, home_team, away_team, home_score, away_score, status, group_name')
         .order('match_date', { ascending: true })
         .order('match_time', { ascending: true });
 
@@ -139,8 +171,29 @@ export default function AdminPanel({ onPointsRecalculated }) {
       });
     }
 
+    async function loadRealGroups() {
+      const { data } = await supabase
+        .from('group_results')
+        .select('group_name, first_place, second_place');
+
+      if (shouldIgnore) return;
+
+      setRealGroupResultsByName(
+        Object.fromEntries(
+          (data ?? []).map((groupResult) => [
+            groupResult.group_name,
+            {
+              first_place: groupResult.first_place ?? '',
+              second_place: groupResult.second_place ?? '',
+            },
+          ]),
+        ),
+      );
+    }
+
     loadMatches();
     loadRealPodium();
+    loadRealGroups();
 
     return () => {
       shouldIgnore = true;
@@ -148,6 +201,7 @@ export default function AdminPanel({ onPointsRecalculated }) {
   }, [reloadKey, todayDate]);
 
   const matchesByDate = useMemo(() => groupMatchesByDate(matches), [matches]);
+  const groups = useMemo(() => createGroupsFromMatches(matches), [matches]);
 
   function updateScore(matchId, side, value) {
     setScoresByMatchId((current) => ({
@@ -267,6 +321,18 @@ export default function AdminPanel({ onPointsRecalculated }) {
     setRealPodium((current) => ({ ...current, [slotKey]: value }));
   }
 
+  function updateRealGroupResult(groupName, slotKey, value) {
+    setRealGroupResultsByName((current) => ({
+      ...current,
+      [groupName]: {
+        first_place: '',
+        second_place: '',
+        ...current[groupName],
+        [slotKey]: value,
+      },
+    }));
+  }
+
   async function handleSaveRealPodium() {
     setStatusMessage('');
 
@@ -312,17 +378,62 @@ export default function AdminPanel({ onPointsRecalculated }) {
     onPointsRecalculated?.();
   }
 
+  async function handleSaveRealGroup(group) {
+    setStatusMessage('');
+
+    const groupResult = realGroupResultsByName[group.name] ?? {};
+    const firstPlace = groupResult.first_place?.trim() ?? '';
+    const secondPlace = groupResult.second_place?.trim() ?? '';
+
+    if (!firstPlace || !secondPlace) {
+      setStatusType('error');
+      setStatusMessage(`Completa primero y segundo de ${group.name}`);
+      return;
+    }
+
+    if (firstPlace.toLowerCase() === secondPlace.toLowerCase()) {
+      setStatusType('error');
+      setStatusMessage(`Los equipos de ${group.name} deben ser distintos`);
+      return;
+    }
+
+    setSavingGroupName(group.name);
+
+    const { error } = await supabase.from('group_results').upsert(
+      {
+        group_name: group.name,
+        first_place: firstPlace,
+        second_place: secondPlace,
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: 'group_name' },
+    );
+
+    setSavingGroupName(null);
+
+    if (error) {
+      setStatusType('error');
+      setStatusMessage(`Error guardando ${group.name}`);
+      return;
+    }
+
+    setStatusType('success');
+    setStatusMessage(`${group.name} guardado. Puntajes de grupos actualizados.`);
+    onPointsRecalculated?.();
+  }
+
   async function handleRecalculateAll() {
     setIsRecalculating(true);
     setStatusMessage('');
 
-    // Recalcula puntos de partidos y del podio del Mundial.
+    // Recalcula puntos de partidos, grupos y podio del Mundial.
     const matchPoints = await supabase.rpc('calculate_prediction_points');
+    const groupPoints = await supabase.rpc('calculate_group_points');
     const podiumPoints = await supabase.rpc('calculate_tournament_points');
 
     setIsRecalculating(false);
 
-    if (matchPoints.error || podiumPoints.error) {
+    if (matchPoints.error || groupPoints.error || podiumPoints.error) {
       setStatusType('error');
       setStatusMessage('Error recalculando los puntajes');
       return;
@@ -543,6 +654,74 @@ export default function AdminPanel({ onPointsRecalculated }) {
           })}
         </div>
       )}
+
+      <div className="admin-card">
+        <h3>Clasificados reales por grupo</h3>
+        <p className="admin-hint">
+          Registra el primero y segundo real de cada grupo. Cada acierto exacto
+          suma 0.5 puntos.
+        </p>
+
+        {groups.length === 0 ? (
+          <p className="empty-state">No hay grupos cargados</p>
+        ) : (
+          <div className="admin-groups">
+            {groups.map((group) => {
+              const groupResult = realGroupResultsByName[group.name] ?? {
+                first_place: '',
+                second_place: '',
+              };
+              const isSavingGroup = savingGroupName === group.name;
+
+              return (
+                <section className="admin-group-card" key={group.name}>
+                  <div className="admin-group-head">
+                    <h4>{group.name}</h4>
+                    <span>{group.teams.length} equipos</span>
+                  </div>
+
+                  <div className="group-teams">
+                    {group.teams.map((team) => (
+                      <span className="group-team-chip" key={team}>
+                        <TeamFlag teamName={team} size="sm" />
+                        {team}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="new-match-form">
+                    {GROUP_RESULT_SLOTS.map((slot) => (
+                      <div className="admin-field" key={slot.key}>
+                        <TeamPicker
+                          label={slot.label}
+                          placeholder="Equipo"
+                          value={groupResult[slot.key]}
+                          options={group.teams}
+                          excluded={GROUP_RESULT_SLOTS.filter(
+                            (other) => other.key !== slot.key,
+                          ).map((other) => groupResult[other.key])}
+                          onChange={(team) =>
+                            updateRealGroupResult(group.name, slot.key, team)
+                          }
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    type="button"
+                    className="secondary-wide-button"
+                    disabled={isSavingGroup}
+                    onClick={() => handleSaveRealGroup(group)}
+                  >
+                    {isSavingGroup ? 'Guardando...' : `Guardar ${group.name}`}
+                  </button>
+                </section>
+              );
+            })}
+          </div>
+        )}
+      </div>
 
       <div className="admin-card">
         <h3>Podio real del Mundial</h3>
