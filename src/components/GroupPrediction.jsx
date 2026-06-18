@@ -3,7 +3,7 @@ import { supabase } from '../lib/supabase.js';
 import TeamFlag from './TeamFlag.jsx';
 import TeamPicker from './TeamPicker.jsx';
 
-const DEADLINE = new Date('2026-06-17T23:59:59-05:00');
+const DEADLINE = new Date('2026-06-18T10:59:00-05:00');
 const GROUP_MATCH_COLUMNS = 'group_name, home_team, away_team';
 
 function normalizeGroupName(groupName) {
