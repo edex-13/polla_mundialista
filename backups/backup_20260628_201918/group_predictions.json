@@ -1,0 +1,1332 @@
+[
+  {
+    "id": "79d3135b-fa1d-4b21-92a3-bcb60cb8383f",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "dfcbe99f-e6dc-4381-b30d-b131f9f3fdf9",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "0083f79c-6c0e-4d9e-8947-ca871cfc8160",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Ghana",
+    "points": 0.5,
+    "created_at": "2026-06-18T04:05:34.312616+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "82cfab2a-1984-4c37-96c7-51eb40d61d73",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "b1ef9bc5-31e7-40df-aa0f-7a2c0d6846bb",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo F",
+    "first_place": "Suecia",
+    "second_place": "Japón",
+    "points": 0.5,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "d2aea08e-3b90-477d-8959-e3f1519ca768",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Japón",
+    "points": 1,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "75587aa2-3080-4b46-b9f2-fb72db1803e0",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-26T01:30:52.328001+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "196678c9-d779-41b4-a529-536daef4b0ff",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "6b5ddf3a-b398-40bf-a323-1e9144622cba",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "857a2783-14da-4751-84bd-08064be5b3a3",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Escocia",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "64dd51e8-a030-4116-865b-dfd4403d2465",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo C",
+    "first_place": "Escocia",
+    "second_place": "Brasil",
+    "points": 0,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "fbfa9dba-78dc-4a41-a456-672534a32b10",
+    "player_id": "d0d1ebcc-ad0e-4955-b31c-f8af6f9e5d3c",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T12:57:35.182457+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e45345aa-50f4-48eb-b54f-1c80a68cb7a9",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Uruguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "338c102d-e88d-4e1b-a486-badcdd9ffec6",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Uruguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "ebb4a576-3c46-493a-8280-b682199e2902",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T04:08:17.807959+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "84d9eec4-b1e2-4038-9183-90d8c6fc4f36",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "c59f4bd0-4091-44da-8141-6af9a467e3f4",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "4f4adc02-fbc1-4930-b29d-bc3827034ce5",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo B",
+    "first_place": "Catar",
+    "second_place": "Suiza",
+    "points": 0,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "2b981bea-9cb2-462f-8732-a846c761d8f4",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Marruecos",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "9d9b600e-8354-4bd0-a7ea-e6e447e7bc04",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo C",
+    "first_place": "Escocia",
+    "second_place": "Marruecos",
+    "points": 0.5,
+    "created_at": "2026-06-18T04:08:17.807959+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "88a76186-31d6-490a-b9ba-c1d0afb90234",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Escocia",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "d15c431b-9c10-4ace-8c7a-84d435fc4e02",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Escocia",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "22183a60-4c60-4e12-887a-b8d6a83453ac",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo C",
+    "first_place": "Marruecos",
+    "second_place": "Brasil",
+    "points": 0,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "49155a12-4805-4b88-81fa-422b2d5ec4f6",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Marruecos",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "dfed1167-8896-4e1b-98b2-ae862c617264",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T04:08:17.807959+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "3bf3d561-c7ea-49b9-97b5-b017ef2786ad",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "cd6bcd53-98db-417c-a2be-a5245efff497",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "a8fbf627-a2d0-40a8-893b-3cf9ca06940a",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "0389c7a6-841e-4202-86b6-9feab174bca7",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5c75ab85-4433-4a38-a209-f96b89f8fb56",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "940721a2-71a4-4d1e-b0b0-86795d206322",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5a1c91a0-985d-4989-af13-11fa7e858b6a",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "bf243296-ab68-4ed4-b3ce-5fa01f74b307",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "RD Congo",
+    "points": 0.5,
+    "created_at": "2026-06-18T04:05:03.296321+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "0a744caa-dd65-4dbf-9dba-63ea32fb632e",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-18T13:21:44.157706+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "0232d378-2248-47f7-afbd-cb6f129b2aa2",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "70268b83-fbcf-4445-8669-8c6748406f61",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "c9a80960-35b0-458e-9ad0-d6c22d3fe401",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "a33af008-31ac-49a1-9134-9e9e677b3fae",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "2460efab-507d-439d-9b2a-141f37ec51a4",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Japón",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e64a255c-730c-492e-90ee-dfaeab437af6",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "45fd220b-1d14-4620-8a36-965fb6375147",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Marruecos",
+    "points": 1,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "87e13869-9a57-46f0-be00-4b777da83053",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "9c6a6d93-cbc7-45f2-8631-02e7e8f8947a",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "7a34dcd7-d27d-486d-a594-273cae2aff2e",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo F",
+    "first_place": "Japón",
+    "second_place": "Países Bajos",
+    "points": 0,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "8beae812-869f-4fc3-a2f6-189d9b920adc",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Suecia",
+    "points": 0.5,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "040e1439-6ef6-4348-b345-ddc65de35832",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo F",
+    "first_place": "Japón",
+    "second_place": "Países Bajos",
+    "points": 0,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "3db34a09-d942-401a-8174-f905135c79fa",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "128ff7b7-5684-4e93-9b0d-d75a1f56aa4c",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "bbc307b9-09e8-4028-baa4-a9b35b7575fb",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Marruecos",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "99dc0d90-fd03-4504-bf27-221aaff8865b",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Uruguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "7cc45412-47e3-42cc-82b7-643940a4a908",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Ecuador",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "d01276fa-f9ec-49b5-956f-2cb263e28631",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Japón",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "3cf6b216-7b1c-42b8-ade2-7de826642b96",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo F",
+    "first_place": "Suecia",
+    "second_place": "Países Bajos",
+    "points": 0,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "192750b7-aa07-4663-927e-2746bfe12597",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Suecia",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e6a2d0ba-d796-45d8-8639-d1678859b4ff",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "points": 1,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "4bba52f5-a638-438b-8f47-1e154745d2fe",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Paraguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "52f48d58-202f-41b4-8e5d-37da122071d7",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "points": 1,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "6c3549d3-763b-4b62-a14e-09ee5a3edbee",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "6755286c-401a-4155-ac2a-699871977819",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Irán",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "c2431183-9911-4566-8dec-75b4854880c2",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Irán",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5383b650-4a4d-43f9-96d8-f492fead7e7d",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Cabo Verde",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "1f0fef88-96a1-41c7-91a7-b278d6cb4e77",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo H",
+    "first_place": "Uruguay",
+    "second_place": "España",
+    "points": 0,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "bc01b5c0-9388-4dd0-beba-465514705d4b",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "f19d396c-3a1a-42d4-adfc-b471ec5cc351",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "7b5754a9-1fc2-41f7-90bc-dc5271b004bc",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Corea del Sur",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e2c32854-650c-4c39-93f9-c39dfad2b32f",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "0032483b-8900-4eba-9d71-4a7732452ffa",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Suecia",
+    "points": 0.5,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "606c625a-c6a8-4132-90a9-c04d8e0f4e50",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "dfbb2fee-1578-445f-ac64-c3efc6bdba1b",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "3efcb023-1a77-411b-b769-609a710cd0b0",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-18T14:03:03.543181+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "97311600-5098-4754-b9d6-c488cdc93601",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "12134cbc-e0c5-4b31-9536-25ff18466e7d",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "f68bd278-d410-4856-8afe-a2df994810f5",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Senegal",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "a70b86a9-35a2-492a-8bf0-2344fb5a3e19",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Uruguay",
+    "points": 0.5,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "9fe5eb96-2ac5-4da4-80c9-671414ba5141",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Uruguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "32d1344b-2cef-431e-9313-a30d4ac2d382",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "c6574777-ad7f-46fa-bb3f-5fc568f44327",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "points": 1,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "f036fd28-d55e-4973-af93-99b9cf89785d",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Turquía",
+    "points": 0.5,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e98327cd-2457-4595-848b-1f564cab3a05",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Turquía",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "46fb5b0a-80a8-4084-bca5-33bd325a9b29",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Irán",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "b40f0953-4b7c-4c7c-bc35-a1fbf4a18983",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Egipto",
+    "points": 1,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "7d1af820-3e7e-4e46-bf07-d5785c8c2a45",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Irán",
+    "points": 0.5,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "1f7a1c16-d86c-48ff-8d1e-626e2bc098c7",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Egipto",
+    "points": 1,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "eca82995-b2c2-4921-8af6-ad0b3faef5a4",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Egipto",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "2cdd356a-fd56-40a2-b090-dcd4c3804bd4",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "05f0e4eb-440b-487b-a1a6-1c9552054ab5",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "04f10ce5-95f7-40b2-9848-b9c2faf2916a",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "8f028330-25a8-49a0-a940-d8fadb391e2c",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "100d32b6-6d38-4dd6-821b-6c895709b197",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "87ef437a-73e1-4b00-906c-bc0f94fc2188",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "43cc5fa0-eb79-428e-9ab3-efbfeda970ed",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "7b9100ad-7b14-4d4f-9e4a-d6a062ad5852",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "57a754e2-8b9f-4a1d-8974-cf346c17398f",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo K",
+    "first_place": "Portugal",
+    "second_place": "Colombia",
+    "points": 0,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "b0b36623-d5bb-4e4b-ba6d-3c17c1257098",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "1049662b-0c28-40af-a935-33a61226ffca",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "db91ba60-b37d-4584-8431-ac5fff8b8a1e",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-18T15:21:04.400994+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "ba4cde18-9629-4127-9f87-88888bb4465a",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-18T13:26:14.261998+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "12398659-dc05-4c5a-adcb-8c71bd1ce239",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "0d6c0d90-d77a-4925-a3e5-bbdc8f38be80",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Argelia",
+    "points": 0.5,
+    "created_at": "2026-06-18T14:06:10.390783+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "06357795-15f6-4ec3-83c8-2d3d79567f51",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo B",
+    "first_place": "Catar",
+    "second_place": "Suiza",
+    "points": 0,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5899d942-08ad-41ec-9a38-55b6c5e541be",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo C",
+    "first_place": "Marruecos",
+    "second_place": "Brasil",
+    "points": 0,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "4a160fbc-b788-498a-bc81-abca40bc5e69",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "points": 1,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "30828ee0-9658-4a45-8c62-81802f002cda",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Suecia",
+    "points": 0.5,
+    "created_at": "2026-06-26T01:32:09.943099+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5f0f8fd6-2f8f-4f37-bcbc-13b637f3e636",
+    "player_id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "points": 1,
+    "created_at": "2026-06-26T01:30:52.328001+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "cddecbc7-710b-430d-bc96-ceb1672e97ec",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5c368c56-4034-464c-89e6-d11323ac3aa1",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "518971a1-9f37-4723-b921-f78233d229b8",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Senegal",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "8e6db069-118c-4762-94a2-213ccc443c1d",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo I",
+    "first_place": "Noruega",
+    "second_place": "Francia",
+    "points": 0,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "ade020d8-51d2-4657-99f1-93f73674d1f5",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Uruguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "3b537616-c884-4804-bf71-0bf93a94c308",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Arabia Saudita",
+    "points": 0.5,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e500bd07-ebc1-4f90-9cec-e6f2260349a1",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Cabo Verde",
+    "points": 1,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "92f4b45c-62bd-4851-9e1f-33fa26d4caeb",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo H",
+    "first_place": "Uruguay",
+    "second_place": "Arabia Saudita",
+    "points": 0,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "667a3c34-6119-4bde-ad4d-e8c9b21a960b",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "6c0e2d8f-f55a-4d58-be01-b9976c45623d",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Paraguay",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "d4921697-6519-4a2d-ac23-2956c1997862",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Turquía",
+    "points": 0.5,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "fbcea9a8-010f-4216-87b9-28c7476e08ca",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Egipto",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "49c279f2-b919-4ca2-b6b9-87def215d333",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo G",
+    "first_place": "Irán",
+    "second_place": "Nueva Zelanda",
+    "points": 0,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "791bb476-25c6-48cb-9dbf-b1cd7c3e085f",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "group_name": "Grupo G",
+    "first_place": "Nueva Zelanda",
+    "second_place": "Irán",
+    "points": 0,
+    "created_at": "2026-06-18T04:11:05.809748+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "f5c4ed98-ef05-4bd8-89e2-be61e80ff379",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "30c2b39e-0c30-4126-98b9-3f7c7e3127cc",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e9ec81e1-a944-48c6-aaf2-7658e2c93503",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "b221cd44-caf4-4bbf-bd96-231d96c33b2f",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "34ca0604-3031-4dc4-b857-f41493286c9d",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "fd1c325e-2907-4f9e-a5fb-fade402656cb",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo K",
+    "first_place": "Portugal",
+    "second_place": "Colombia",
+    "points": 0,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "81be8be5-6ac9-46cf-b555-8cd810f9b35a",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "group_name": "Grupo K",
+    "first_place": "Portugal",
+    "second_place": "Colombia",
+    "points": 0,
+    "created_at": "2026-06-18T13:02:28.888509+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "e8436c72-c547-4a8a-ab9e-b383b164bbee",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "points": 1,
+    "created_at": "2026-06-18T13:19:21.694972+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "2424636e-0784-44ce-8b9b-462b40693a22",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Jordania",
+    "points": 0.5,
+    "created_at": "2026-06-17T23:26:36.1363+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "3f91be41-a19d-4282-ae10-744ab01f3671",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Jordania",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "f3ce26ac-edd1-406e-a579-d75da6bf907b",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "points": 1,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "24917206-6584-4c16-b0e3-a77695b0c0ff",
+    "player_id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Nueva Zelanda",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:16:47.871547+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "88e75c3f-181e-46a2-b029-bd14aa131aae",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "points": 1,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "5b8ba7ea-93a6-4d61-a4dc-79100a42e4c8",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "points": 1,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  },
+  {
+    "id": "a52a99ef-e1dc-401d-97ea-89525ffcdd19",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Argelia",
+    "points": 0.5,
+    "created_at": "2026-06-18T13:22:46.118705+00:00",
+    "updated_at": "2026-06-28T21:11:17.311636+00:00"
+  }
+]

@@ -1,0 +1,100 @@
+[
+  {
+    "id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "name": "Ricardo",
+    "pin": "1001",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "name": "Andrés",
+    "pin": "1002",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "134db510-c667-44d1-a184-117ed3ad0ae1",
+    "name": "Virginia",
+    "pin": "1003",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "ca5133e4-6fec-4a11-bf85-cce05a1fef22",
+    "name": "Alexandra",
+    "pin": "1004",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "name": "Karen",
+    "pin": "1005",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "name": "Hector",
+    "pin": "1006",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "name": "Ederson",
+    "pin": "1007",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "e3ac49a5-450d-4d01-bf3f-7bd03c9baff7",
+    "name": "Sebastian",
+    "pin": "1008",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "name": "Jean Pierre",
+    "pin": "1009",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "name": "Cristian",
+    "pin": "1010",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "d0d1ebcc-ad0e-4955-b31c-f8af6f9e5d3c",
+    "name": "Tatiana",
+    "pin": "1013",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "name": "Simon",
+    "pin": "1011",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  },
+  {
+    "id": "5ef2568a-96f3-4921-b09d-290a0952060d",
+    "name": "admin",
+    "pin": "9999",
+    "created_at": "2026-06-17T00:27:17.784078+00:00",
+    "is_admin": true
+  },
+  {
+    "id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "name": "Lucerito",
+    "pin": "1012",
+    "created_at": "2026-06-16T12:08:20.748765+00:00",
+    "is_admin": false
+  }
+]

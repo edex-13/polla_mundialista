@@ -1,0 +1,102 @@
+[
+  {
+    "id": "ec1cac5c-d188-44cf-b126-4d77a18c10ca",
+    "player_id": "5fbdd166-c4f3-48b1-8d2f-5c10f12dcc0d",
+    "champion": "Francia",
+    "runner_up": "Argentina",
+    "third_place": "España",
+    "points": 0,
+    "created_at": "2026-06-29T01:04:00.642907+00:00",
+    "updated_at": "2026-06-18T13:03:00+00:00"
+  },
+  {
+    "id": "a24e663d-4abe-4931-979c-b8fe01749210",
+    "player_id": "2e542ddb-0b78-4286-9a2e-798de2c4db7f",
+    "champion": "Francia",
+    "runner_up": "Argentina",
+    "third_place": "Alemania",
+    "points": 0,
+    "created_at": "2026-06-17T11:15:15.523794+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "683affec-6f40-4a0e-94bb-bcfc1f9c1e8e",
+    "player_id": "ca5133e4-6fec-4a11-bf85-cce05a1fef22",
+    "champion": "Francia",
+    "runner_up": "Argentina",
+    "third_place": "Brasil",
+    "points": 0,
+    "created_at": "2026-06-17T19:43:57.954367+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "18d83576-5251-47a1-98b4-5fc2c244c1bf",
+    "player_id": "ef390239-f992-47d9-bb74-a354b40338b8",
+    "champion": "Alemania",
+    "runner_up": "Argentina",
+    "third_place": "Francia",
+    "points": 0,
+    "created_at": "2026-06-18T13:20:50.46001+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "733d460e-3478-485a-9c79-598a578b077e",
+    "player_id": "62260985-7fda-4ac7-8e1e-bc7b7cd1f3dc",
+    "champion": "Países Bajos",
+    "runner_up": "Portugal",
+    "third_place": "Francia",
+    "points": 0,
+    "created_at": "2026-06-17T23:26:59.591902+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "d32787e0-d4e7-4a29-89c4-98d93aadb061",
+    "player_id": "cf3f74d2-9132-4ed1-b68a-3b47fac4362f",
+    "champion": "Alemania",
+    "runner_up": "Francia",
+    "third_place": "Argentina",
+    "points": 0,
+    "created_at": "2026-06-18T13:23:38.500976+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "fcf58990-2e68-4763-941b-e7d2f3f191c7",
+    "player_id": "eaf03756-6324-42df-bb7c-5f37cf60c8da",
+    "champion": "Francia",
+    "runner_up": "España",
+    "third_place": "Argentina",
+    "points": 0,
+    "created_at": "2026-06-18T14:07:07.055543+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "2a50a087-b8cc-40f5-84f3-926f1d18c570",
+    "player_id": "c988a836-84be-4800-ae75-a8a05b9386c1",
+    "champion": "Alemania",
+    "runner_up": "Inglaterra",
+    "third_place": "Argentina",
+    "points": 0,
+    "created_at": "2026-06-18T14:17:05.689721+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "4ed1e8b2-7613-4da7-972b-860fa23f3ccf",
+    "player_id": "9261eb34-c659-4c21-890e-5cca49dc14da",
+    "champion": "Alemania",
+    "runner_up": "Argentina",
+    "third_place": "Francia",
+    "points": 0,
+    "created_at": "2026-06-18T14:28:57.516121+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  },
+  {
+    "id": "8410da39-665f-4613-8380-83990a516ca7",
+    "player_id": "a3962880-32d0-4e74-a117-99bfa1705ae1",
+    "champion": "Argentina",
+    "runner_up": "Francia",
+    "third_place": "Colombia",
+    "points": 0,
+    "created_at": "2026-06-18T15:56:24.50641+00:00",
+    "updated_at": "2026-06-26T02:04:20.619543+00:00"
+  }
+]

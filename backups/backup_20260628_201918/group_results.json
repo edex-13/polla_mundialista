@@ -1,0 +1,74 @@
+[
+  {
+    "group_name": "Grupo B",
+    "first_place": "Suiza",
+    "second_place": "Canadá",
+    "updated_at": "2026-06-24T21:16:07.978+00:00"
+  },
+  {
+    "group_name": "Grupo C",
+    "first_place": "Brasil",
+    "second_place": "Marruecos",
+    "updated_at": "2026-06-25T00:12:59.666+00:00"
+  },
+  {
+    "group_name": "Grupo A",
+    "first_place": "México",
+    "second_place": "Sudáfrica",
+    "updated_at": "2026-06-25T12:18:13.962+00:00"
+  },
+  {
+    "group_name": "Grupo E",
+    "first_place": "Alemania",
+    "second_place": "Costa de Marfil",
+    "updated_at": "2026-06-25T21:59:30.402+00:00"
+  },
+  {
+    "group_name": "Grupo F",
+    "first_place": "Países Bajos",
+    "second_place": "Japón",
+    "updated_at": "2026-06-26T00:59:10.115+00:00"
+  },
+  {
+    "group_name": "Grupo I",
+    "first_place": "Francia",
+    "second_place": "Noruega",
+    "updated_at": "2026-06-26T21:09:20.694+00:00"
+  },
+  {
+    "group_name": "Grupo H",
+    "first_place": "España",
+    "second_place": "Cabo Verde",
+    "updated_at": "2026-06-27T02:19:43.163+00:00"
+  },
+  {
+    "group_name": "Grupo D",
+    "first_place": "Estados Unidos",
+    "second_place": "Australia",
+    "updated_at": "2026-06-27T16:46:17.998+00:00"
+  },
+  {
+    "group_name": "Grupo G",
+    "first_place": "Bélgica",
+    "second_place": "Egipto",
+    "updated_at": "2026-06-27T16:46:29.414+00:00"
+  },
+  {
+    "group_name": "Grupo L",
+    "first_place": "Inglaterra",
+    "second_place": "Croacia",
+    "updated_at": "2026-06-27T22:57:47.021+00:00"
+  },
+  {
+    "group_name": "Grupo K",
+    "first_place": "Colombia",
+    "second_place": "Portugal",
+    "updated_at": "2026-06-28T01:31:33.262+00:00"
+  },
+  {
+    "group_name": "Grupo J",
+    "first_place": "Argentina",
+    "second_place": "Austria",
+    "updated_at": "2026-06-28T21:11:15.867+00:00"
+  }
+]

@@ -7,8 +7,11 @@ import ScoreSummary from './ScoreSummary.jsx';
 import AdminPanel from './AdminPanel.jsx';
 import PodiumPrediction from './PodiumPrediction.jsx';
 import GroupPrediction from './GroupPrediction.jsx';
+import BracketView from './BracketView.jsx';
+import { PLACEHOLDER } from '../lib/bracket.js';
 
 const RANKING_TAB = { id: 'ranking', label: 'Ranking' };
+const BRACKET_TAB = { id: 'cuadro', label: 'Cuadro' };
 
 const BASE_TABS = [
   { id: 'partidos', label: 'Partidos' },
@@ -24,6 +27,7 @@ const TAB_INTROS = {
   partidos: 'Pronostica los próximos partidos. Los que ya empezaron quedan cerrados.',
   grupos: 'Elige primero y segundo de cada grupo. Cada acierto exacto suma 0.5 puntos.',
   podio: 'Pronostica el podio del Mundial.',
+  cuadro: 'Sigue el cuadro de eliminatorias del Mundial.',
   resultados: 'Revisa cómo te fue en cada partido.',
   ranking: 'Posiciones generales de todos los participantes.',
   admin: 'Registra los resultados de los partidos y el podio del Mundial.',
@@ -127,9 +131,12 @@ export default function PredictionsPage({ player, onLogout }) {
   const matchesByDate = useMemo(() => groupMatchesByDate(matches), [matches]);
   // El admin no pronostica ni tiene resultados propios: solo ranking + admin.
   const tabs = useMemo(
-    () => (player.is_admin ? [RANKING_TAB, ADMIN_TAB] : BASE_TABS),
+    () => (player.is_admin ? [RANKING_TAB, BRACKET_TAB, ADMIN_TAB] : BASE_TABS),
     [player.is_admin],
   );
+  const bracketIntro = player.is_admin
+    ? 'Marca quién avanza en cada llave; el siguiente cruce se arma solo.'
+    : TAB_INTROS.cuadro;
 
   useEffect(() => {
     let shouldIgnoreResponse = false;
@@ -175,7 +182,10 @@ export default function PredictionsPage({ player, onLogout }) {
         return;
       }
 
-      const upcomingMatches = matchesData ?? [];
+      // Excluye llaves de eliminatoria aún sin rival definido ("Por definir").
+      const upcomingMatches = (matchesData ?? []).filter(
+        (match) => match.home_team !== PLACEHOLDER && match.away_team !== PLACEHOLDER,
+      );
       const matchIds = upcomingMatches.map((match) => match.id);
 
       if (matchIds.length === 0) {
@@ -332,7 +342,9 @@ export default function PredictionsPage({ player, onLogout }) {
       </nav>
 
       <div className="tab-panel">
-        <p className="tab-intro">{TAB_INTROS[activeTab]}</p>
+        <p className="tab-intro">
+          {activeTab === 'cuadro' ? bracketIntro : TAB_INTROS[activeTab]}
+        </p>
 
         {activeTab === 'partidos' ? (
           <>
@@ -439,6 +451,15 @@ export default function PredictionsPage({ player, onLogout }) {
           <PodiumPrediction
             player={player}
             onSaved={() =>
+              setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
+            }
+          />
+        ) : null}
+
+        {activeTab === 'cuadro' ? (
+          <BracketView
+            isAdmin={player.is_admin}
+            onChanged={() =>
               setRefreshKey((currentRefreshKey) => currentRefreshKey + 1)
             }
           />

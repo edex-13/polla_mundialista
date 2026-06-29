@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase.js';
 import TeamFlag from './TeamFlag.jsx';
 
+// El pronóstico del podio de cada jugador solo se revela el día de la
+// final del Mundial (antes daría ventaja al ver las apuestas ajenas).
+const WORLD_CUP_FINAL_DATE = new Date('2026-07-19T00:00:00-05:00');
+
 function getInitials(name) {
   const words = (name ?? '').trim().split(/\s+/).filter(Boolean);
 
@@ -116,13 +120,21 @@ export default function PlayerHistory({ player, onClose }) {
     };
   }, [player.player_id]);
 
-  const matchPoints = matches.reduce((total, item) => total + (item.points ?? 0), 0);
+  // Solo se muestran partidos ya finalizados (resultados pasados); los
+  // pendientes/futuros no deben revelarse en el historial del ranking.
+  const finishedMatches = matches.filter((item) => item.status === 'finished');
+  const matchPoints = finishedMatches.reduce(
+    (total, item) => total + (item.points ?? 0),
+    0,
+  );
   const groupPoints = groupPredictions.reduce(
     (total, item) => total + (item.points ?? 0),
     0,
   );
   const podiumPoints = podium?.points ?? 0;
-  const finishedCount = matches.filter((item) => item.status === 'finished').length;
+  const finishedCount = finishedMatches.length;
+  // El podio solo se revela a partir del día de la final.
+  const canShowPodium = new Date() >= WORLD_CUP_FINAL_DATE;
 
   return (
     <div className="sheet-overlay" role="presentation" onClick={onClose}>
@@ -180,7 +192,7 @@ export default function PlayerHistory({ player, onClose }) {
                 </div>
               </div>
 
-              {podium ? (
+              {podium && canShowPodium ? (
                 <section className="history-block">
                   <h4>Pronóstico del podio</h4>
                   <ul className="history-podium">
@@ -261,11 +273,11 @@ export default function PlayerHistory({ player, onClose }) {
               <section className="history-block">
                 <h4>Partidos pronosticados</h4>
 
-                {matches.length === 0 ? (
-                  <p className="history-empty">Aún no tiene pronósticos de partidos.</p>
+                {finishedMatches.length === 0 ? (
+                  <p className="history-empty">Aún no tiene partidos jugados.</p>
                 ) : (
                   <ul className="history-matches">
-                    {matches.map((item) => {
+                    {finishedMatches.map((item) => {
                       const isFinished = item.status === 'finished';
                       const tag = getMatchPointsTag(item.points ?? 0);
 
